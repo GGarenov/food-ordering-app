@@ -1,11 +1,12 @@
 import "./App.css";
-import { Header } from "./componenets/Header";
+import { Banner } from "./componenets/Banner";
 import Navigation from "./navigation";
 
 function App() {
   return (
     <div className="App">
       <Navigation />
+      <Banner />
     </div>
   );
 }
