@@ -2,7 +2,7 @@ import { AddProduct } from "./AddProduct";
 
 export const ProductPreviewCard = ({ product, onAddProduct }) => {
   const addProduct = () => {
-    //TODO: create after setting up redux
+    onAddProduct(product);
   };
 
   return (
