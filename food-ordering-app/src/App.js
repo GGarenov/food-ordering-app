@@ -1,6 +1,7 @@
 import "./App.css";
 import { About } from "./componenets/About";
 import { Banner } from "./componenets/Banner";
+import { ProductsPreview } from "./componenets/ProductsPreview";
 import Navigation from "./navigation";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navigation />
       <Banner />
       <About />
+      <ProductsPreview />
     </div>
   );
 }
