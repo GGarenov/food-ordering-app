@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { ProductPreviewCard } from "./ProductPreviewCard";
 
 export const ProductsPreview = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,11 @@ export const ProductsPreview = () => {
       <h2>Products</h2>
       {products.length > 0 &&
         products.map((product, index) => {
-          return <div key={index}>{product.name}</div>;
+          return (
+            <div key={index} className="w-full p-3">
+              <ProductPreviewCard product={product} />
+            </div>
+          );
         })}
     </div>
   );
