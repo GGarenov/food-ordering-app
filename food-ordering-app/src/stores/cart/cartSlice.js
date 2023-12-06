@@ -15,6 +15,7 @@ export const cartSlice = createSlice({
       return { products: [] };
     },
     incrementProductAmount: (state, action) => {
+      console.log("increment");
       return {
         products: state.products.map((product) =>
           product.id === action.payload.id ? { ...product, amount: product.amount + 1 } : product
@@ -30,3 +31,9 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const cartProducts = (state) => state.cart.products;
+
+export const { addToCart, clearCart, incrementProductAmount, decrementProductAmount } = cartSlice.actions;
+
+export default cartSlice.reducer;
