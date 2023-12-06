@@ -3,7 +3,7 @@ const MongoClient = require("mongodb").MongoClient;
 const _ = require("lodash");
 
 async function main() {
-  const uri = "mongodb://localhost://27017";
+  const uri = "mongodb://127.0.0.1://27017";
   const client = new MongoClient(uri);
 
   try {
@@ -28,7 +28,7 @@ async function main() {
       let newProduct = {
         name: faker.commerce.productName(),
         adjective: faker.commerce.productAdjective(),
-        desciption: faker.commerce.productDescription(),
+        description: faker.commerce.productDescription(),
         price: faker.commerce.price(),
         category: _.sample(categories),
         imageUrl: _.sample(imageUrls),

@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
-const db = require("./db");
+const { PORT, DB_URL } = require("./db");
 
 const app = express();
 const productRouter = require("./routes/productRouter");
@@ -15,13 +16,21 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// Database Connection
+async function dbConnect() {
+  await mongoose.connect(DB_URL);
+}
+
+dbConnect()
+  .then(() => {
+    console.log("Successfully connected to the database!");
+  })
+  .catch((err) => console.log(`Error while connecting to the DB. ${err}`));
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Food Ordering" });
 });
 
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
