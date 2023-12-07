@@ -7,6 +7,7 @@ const { PORT, DB_URL } = require("./db");
 
 const app = express();
 const productRouter = require("./routes/productRouter");
+const userRouter = require("./routes/userRouter");
 
 const Order = require("./models/orderModel");
 
@@ -100,6 +101,7 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/", productRouter);
+app.use("/api/", userRouter);
 
 app.post("/create-payment-intent", async (req, res) => {
   try {
