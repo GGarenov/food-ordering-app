@@ -13,7 +13,7 @@ const Menu = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   const onAddProduct = (product) => {
     dispatch(addToCart(product));
