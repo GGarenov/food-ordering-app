@@ -8,7 +8,7 @@ const Menu = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, []);
 
   return <div className="text-white"> Menu</div>;
 };
